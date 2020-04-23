@@ -27,7 +27,7 @@ export class ProductComponent {
     }
 
     getProductCount(): number {
-        console.log("getProductCount invoked");        
+        console.log("getProductCount invoked");
         return this.getProducts().length;
     }
 
@@ -37,7 +37,7 @@ export class ProductComponent {
 
     getKey(index: number, product: Product) {
         return product.id;
-    }    
+    }
 
     get nextProduct(): Product {
         return this.model.getProducts().shift();
@@ -46,5 +46,5 @@ export class ProductComponent {
     getProductPrice(index: number): number {
         return Math.floor(this.getProduct(index).price);
     }
-    
+
 }

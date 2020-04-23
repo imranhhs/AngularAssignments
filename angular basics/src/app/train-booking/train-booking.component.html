@@ -1,3 +1,51 @@
-<p>
-  train-booking works!
-</p>
+<div class="bg-info p-a-1 m-a-1" text-align: center>
+  Train Booking
+</div>
+
+
+<!-- <div class='bg-info p-a-1'>
+  The rounded price is {{getProductPrice(1)}}
+</div> -->
+
+
+<!-- <h4>Basic mat-select</h4>
+
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let train of getTrains()" [value]="train.id">
+      {{train.trainName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<!-- <h4>Basic native select</h4>
+<mat-form-field>
+  <mat-label>Cars</mat-label>
+  <select matNativeControl required>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field> -->
+
+
+<div class="col-xs-6">
+
+  <table class="table table-sm table-bordered table-striped">
+    <tr>
+      <th>Train Number</th>
+      <th>Name</th>
+      <th>Source</th>
+      <th>Destination</th>
+    </tr>
+    <tr *ngFor="let train of getTrains(); let i = index">
+      <td>{{train.trainNumber | lowercase}}</td>
+      <td>{{train.trainName | uppercase}}</td>
+      <td>{{train.trainSource}}</td>
+      <td>{{train.trainDestination}}</td>
+    </tr>
+  </table>
+
+</div>
