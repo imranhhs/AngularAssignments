@@ -1,0 +1,58 @@
+<!-- <h1 class="heading">{{'Search Trains' | uppercase}}</h1> -->
+<div>
+  <table class="table table-sm table-bordered table-striped">
+    <tr>
+      <th>
+        <div class="dropdown">
+          <span>Source ▼</span>
+          <div class="dropdown-content">
+            <p *ngFor="let train of getSourceStations()">
+              {{ train }}
+            </p>
+          </div>
+        </div>
+      </th>
+      <th>
+        <div class="dropdown">
+          <span>Destination ▼</span>
+          <div class="dropdown-content">
+            <p *ngFor="let train of getDestinationStations()">
+              {{ train }}
+            </p>
+          </div>
+        </div>
+      </th>
+      <!-- <th>
+        <div>
+          <input type="date" name="Date" class="dateInput"/>
+        </div>
+      </th> -->
+      <th>
+        <div>
+            <button type="submit" class="searchButton" (click)="searchTrains" >Search</button>
+        </div>
+      </th>
+    </tr>
+  </table>
+</div>
+
+<br>
+
+<app-train-list [shouldShowOption]="false"></app-train-list>
+
+<!-- <div>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>CLASS</th>
+      <th>CITIES</th>
+    </tr>
+    <tr *ngFor="let train of trains; let i = index">
+      <td>{{train.id}}</td>
+      <td>{{train.name + ' (' + train.runsOnDays.join('-') + ")" | uppercase}}</td>
+      <td>{{train.category | uppercase}}</td>
+      <td>{{train.cities.join(' → ')}}</td>
+    </tr>
+  </table>
+</div> -->

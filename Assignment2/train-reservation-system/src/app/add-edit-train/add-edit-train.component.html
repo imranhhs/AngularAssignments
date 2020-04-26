@@ -1,0 +1,40 @@
+<!-- <h1 style="text-align:center">Add a New Train</h1> -->
+
+<style>
+  input.ng-dirty.ng-invalid {
+    border: 2px solid #ff0000
+  }
+
+  input.ng-dirty.ng-valid {
+    border: 2px solid #6bc502
+  }
+</style>
+
+<div class="col-xs-6">
+  <form [formGroup]="form" (ngSubmit)="submitForm(form)">
+    <div class="form-group" *ngFor="let control of form.trainFormControls">
+
+      <label>{{control.label}}</label>
+      <input class="form-control" [(ngModel)]="train[control.modelProperty]" name="{{control.modelProperty}}"
+        formControlName="{{control.modelProperty}}" />
+
+      <ul class="text-danger list-unstyled" *ngIf="(formSubmitted || control.dirty) && !control.valid">
+        <li *ngFor="let error of control.getValidationMessages()">
+          {{error}}
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="formSubmitted && !form.valid"
+      [class.btn-secondary]="formSubmitted && form.invalid">
+      {{formSubmitButtonTitle}}
+    </button>
+  </form>
+
+  <div class="alert alert-success" role="alert" *ngIf="message !== '' ">
+    <h2> {{ message }} </h2>
+  </div>
+
+</div>
+
+

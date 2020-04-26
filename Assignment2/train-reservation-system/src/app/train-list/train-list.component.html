@@ -1,0 +1,68 @@
+<!-- <h1 style="text-align:center">All Available Trains</h1> -->
+
+<!-- <table class="table table-sm table-bordered table-striped">
+  <tr>
+    <th>Sr. no</th>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Fare</th>
+    <th></th>
+  </tr>
+</table>
+
+<app-train-item *ngFor="let train of trains; let i = index" [train]="train"></app-train-item> -->
+
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <tr *ngFor="let train of trains; let i = index">
+      <td>{{ i+1 }}</td>
+      <td><app-train-item [train]="train"></app-train-item></td>
+    </tr>
+  </div>
+</div> -->
+
+<!-- <div class="col-xs-6">
+  <table class="table table-sm table-bordered table-striped">
+      <tr><th></th><th>Name</th><th>Category</th><th>Price</th></tr>
+      <tr *ngFor="let item of trains; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{item.number}}</td>
+          <td>{{item.name | uppercase}}</td>
+      </tr>
+  </table>
+  </div> -->
+
+<!-- <button routerLink="/edit">Edit</button> -->
+
+
+<div *ngIf="trains.length!==0">
+  <table class="table">
+    <tr>
+      <th>NUMBER</th>
+      <th>NAME</th>
+      <th>SOURCE</th>
+      <th>DESTINATION</th>
+      <th>FARE</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let train of trains; let i = index">
+      <td>{{train.number}}</td>
+      <td>{{train.name | uppercase}}</td>
+      <td>{{train.source | uppercase}}</td>
+      <td>{{train.destination | uppercase}}</td>
+      <td>{{train.fare | currency:"INR":true:"2.2"}}</td>
+      <td *ngIf="shouldShowOption">
+        <button style="margin: 20px;" class="btn btn-primary" type="button" (click)="onEditTrain(train)">Edit</button>
+        <button class="btn btn-danger" type="button" (click)="onDeleteTrain(train)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="trains.length===0">
+  <h1 style="text-align:center">No trains available!</h1>
+</div>
+
+<router-outlet></router-outlet>
